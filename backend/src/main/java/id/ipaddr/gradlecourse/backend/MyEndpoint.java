@@ -12,6 +12,8 @@ import com.google.api.server.spi.config.ApiNamespace;
 
 import javax.inject.Named;
 
+import id.ipaddr.java.lib.android.udacity.gradle.JavaGradleCourse;
+
 /**
  * An endpoint class we are exposing
  */
@@ -33,7 +35,15 @@ public class MyEndpoint {
     public MyBean sayHi(@Named("name") String name) {
         MyBean response = new MyBean();
         response.setData("Hi, " + name);
+        return response;
+    }
 
+    @ApiMethod(name = "makeJokes")
+    public MyBean makeJokes(){
+        MyBean response = new MyBean();
+        String joke = new JavaGradleCourse().getJoke();
+        System.out.print(joke);
+        response.setData(joke);
         return response;
     }
 

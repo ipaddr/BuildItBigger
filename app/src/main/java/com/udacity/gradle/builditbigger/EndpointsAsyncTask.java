@@ -47,11 +47,9 @@ public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, S
         }
 
         context = params[0].first;
-        String name = params[0].second;
-        name = new JavaGradleCourse().getJoke();
 
         try {
-            return myApiService.sayHi(name).execute().getData();
+            return myApiService.makeJokes().execute().getData();
         } catch (IOException e) {
             return e.getMessage();
         }
@@ -59,7 +57,6 @@ public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, S
 
     @Override
     protected void onPostExecute(String result) {
-//        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
         String msg = result;
         Intent intent = new Intent(context, ActivityToDisplayJoke.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

@@ -1,1 +1,1 @@
-include ':app', ':javagradlecourse', ':androidlibrarygradlecourse', ':backend'
+include ':app', ':backend', ':androidlibrarygradlecourse', ':javagradlecourse'
